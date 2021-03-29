@@ -4,6 +4,8 @@ import React, { SyntheticEvent } from 'react';
 import { TextField, Grid, Button, ButtonGroup, Box } from '@material-ui/core';
 import useInput from '../../hooks/useInput';
 import { login } from '../../services/loginService';
+import { dispatch } from '../../store';
+import { setUser } from '../../reducers/user';
 
 import './Login.css';
 
@@ -13,7 +15,7 @@ const LoginForm = (): React.ReactElement => {
   const handleForm = async (e: SyntheticEvent) => {
     e.preventDefault();
     const res = await login(username.value as string, password.value as string);
-    console.log(res);
+    dispatch(setUser(res));
   };
 
   return (

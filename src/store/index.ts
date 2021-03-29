@@ -6,7 +6,7 @@ const reducer = combineReducers({
 });
 
 const store = createStore(reducer);
-
+export const { dispatch } = store;
 export default store;
 
 export type RootState = ReturnType<typeof store.getState>;
