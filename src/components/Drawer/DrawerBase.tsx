@@ -6,18 +6,18 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
-  Typography,
 } from '@material-ui/core';
-import { MoveToInbox, Mail, Settings, AccountCircle } from '@material-ui/icons';
+import { MoveToInbox, Mail, AccountCircle, Settings } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { RootState } from '../../store';
 import styles from './styles';
+import DrawerButton from './DrawerButton';
 
 const DrawerBase = (): React.ReactElement => {
-  const user = useSelector((state: RootState) => state.user);
+  const history = useHistory();
+  const user = useSelector((state: RootState) => state.user) as any;
   const classes = styles();
-  console.log(classes.toolbar);
-
   return (
     <div>
       <Box
@@ -57,6 +57,11 @@ const DrawerBase = (): React.ReactElement => {
         ))}
       </List>
       <Divider />
+      <List>
+        <DrawerButton link="/settings" text="Settings">
+          <Settings />
+        </DrawerButton>
+      </List>
     </div>
   );
 };

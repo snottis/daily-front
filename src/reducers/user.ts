@@ -18,7 +18,10 @@ const initialState = (): null | UserData => {
   return null;
 };
 
-const userReducer = (state = initialState(), action: Action) => {
+const userReducer = (
+  state = initialState(),
+  action: Action,
+): UserData | null => {
   switch (action.type) {
     case 'SET_USER':
       return action.data;
