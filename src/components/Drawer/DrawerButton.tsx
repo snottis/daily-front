@@ -2,7 +2,7 @@ import React from 'react';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { dispatch } from '../../store';
-import { toggleDrawer } from '../../reducers/drawer';
+import { closeDrawer } from '../../reducers/drawer';
 
 interface DrawerButtonProps {
   link: string;
@@ -18,7 +18,7 @@ const DrawerButton = ({
   const history = useHistory();
   const handleClick = () => {
     history.push(link);
-    dispatch(toggleDrawer());
+    dispatch(closeDrawer());
   };
   return (
     <ListItem button onClick={handleClick}>
