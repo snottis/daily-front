@@ -33,7 +33,7 @@ const ResponsiveDrawer = (props: any): React.ReactElement => {
       <Bar openDrawer={handleDrawerToggle} />
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
+        <Hidden mdUp implementation="css">
           <Drawer
             container={undefined}
             variant="temporary"
@@ -50,7 +50,7 @@ const ResponsiveDrawer = (props: any): React.ReactElement => {
             <DrawerBase />
           </Drawer>
         </Hidden>
-        <Hidden xsDown implementation="css">
+        <Hidden smDown implementation="css">
           <Drawer
             classes={{
               paper: classes.drawerPaper,
