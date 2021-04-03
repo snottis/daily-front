@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Product } from '../types/Product';
 
 const baseUrl = `/api/products`;
 
@@ -25,4 +26,13 @@ const getAll = async (): Promise<any> => {
   }
 };
 
-export default { create, getAll };
+const update = async (id: string, prod: Product): Promise<any> => {
+  try {
+    const res = await axios.put(`${baseUrl}/${id}`, prod);
+    return res.data;
+  } catch (error) {
+    return { error: error.message };
+  }
+};
+
+export default { create, getAll, update };

@@ -1,12 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { ButtonGroup, Button } from '@material-ui/core';
+import { Dialog, Button, Paper } from '@material-ui/core';
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 import AddProductForm from './Products/AddProductForm';
 import ProductList from './Products/ProductList';
 
 const Settings = (): React.ReactElement => {
   const [tabpos, setTabpos] = React.useState('products');
+  const [modal, setModal] = React.useState(false);
+  const handleModal = () => {
+    setModal(!modal);
+  };
   const handleChange = (e: React.MouseEvent, val: string): any => {
     if (val !== null) {
       setTabpos(val);
@@ -21,7 +25,8 @@ const Settings = (): React.ReactElement => {
       default:
         return (
           <div>
-            <AddProductForm />
+            <Button onClick={handleModal}>Add product</Button>
+            <AddProductForm open={modal} onClose={handleModal} />
             <ProductList />
           </div>
         );
