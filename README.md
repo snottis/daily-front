@@ -1,3 +1,9 @@
+# Daily inventory front end
+
+This is frontend for daily-inventory project. Daily inventory is an app for keeping daily inventory of selected products. Aim is to be able to add products, users and storage locations and also give users rights to spesific locations (also access levels admin/user).
+
+This is still a work in progress. Login page is ready and working and drawer is also "ready". Adding and modifying products is working, but state management must be changed to redux.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
