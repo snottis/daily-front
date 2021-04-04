@@ -4,6 +4,7 @@ import { Dialog, Button, Paper } from '@material-ui/core';
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 import AddProductForm from './Products/AddProductForm';
 import ProductList from './Products/ProductList';
+import UserList from './Users/UserList';
 
 const Settings = (): React.ReactElement => {
   const [tabpos, setTabpos] = React.useState('products');
@@ -19,7 +20,7 @@ const Settings = (): React.ReactElement => {
   const selectPage = (): React.ReactElement => {
     switch (tabpos) {
       case 'users':
-        return <p>Users</p>;
+        return <UserList />;
       case 'locations':
         return <p>Locations</p>;
       default:

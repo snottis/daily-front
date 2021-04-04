@@ -23,3 +23,5 @@ const getAll = async (): Promise<any> => {
     return { error: error.message };
   }
 };
+
+export default { create, getAll };
