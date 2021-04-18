@@ -6,3 +6,10 @@ export interface Product {
   lotsize?: number;
   hidden?: boolean;
 }
+
+export type ProductState = Product[] | [];
+
+export type ProductAction = {
+  type: string;
+  data: Product | Product[];
+};

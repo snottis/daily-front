@@ -12,8 +12,12 @@ import {
 
 import service from '../../../services/productsService';
 import ModifyProductDialog from './ModifyProductDialog';
+import { getProducts } from '../../../reducers/product';
+import { useAppDispatch, useAppSelector } from '../../../hooks/storeHooks';
 
 const ProductList = (): React.ReactElement => {
+  const products = useAppSelector((state) => state.product);
+  const dispatch = useAppDispatch();
   const [modal, setModal] = useState(false);
   const [modalProduct, setModalProduct] = useState({});
   const hiddenProduct = async (id: string, hidden: boolean) => {
@@ -26,17 +30,9 @@ const ProductList = (): React.ReactElement => {
   const changeModal = (): void => {
     setModal(!modal);
   };
-  const [products, setProducts] = useState([]);
   useEffect(() => {
-    async function getProducts() {
-      const res = await service.getAll();
-      if (res.error) console.log(res);
-      else {
-        setProducts(res);
-      }
-    }
-    getProducts();
-  }, []);
+    dispatch(getProducts());
+  }, [dispatch]);
   return (
     <>
       <ModifyProductDialog

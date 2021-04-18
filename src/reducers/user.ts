@@ -1,4 +1,4 @@
-import { Action } from '../types/action';
+import { AnyAction } from 'redux';
 
 interface UserData {
   access_token: string;
@@ -7,7 +7,7 @@ interface UserData {
   role: 'admin' | 'user';
 }
 
-export const setUser = (data: UserData): Action => {
+export const setUser = (data: UserData): AnyAction => {
   window.localStorage.setItem('loginData', JSON.stringify(data));
   return { type: 'SET_USER', data };
 };
@@ -20,7 +20,7 @@ const initialState = (): null | UserData => {
 
 const userReducer = (
   state = initialState(),
-  action: Action,
+  action: AnyAction,
 ): UserData | null => {
   switch (action.type) {
     case 'SET_USER':

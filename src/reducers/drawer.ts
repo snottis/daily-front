@@ -1,13 +1,13 @@
-import { Action } from '../types/action';
+import { AnyAction } from 'redux';
 
-export const toggleDrawer = (): Action => {
+export const toggleDrawer = (): AnyAction => {
   return { type: 'TOGGLE_DRAWER' };
 };
 
-export const closeDrawer = (): Action => {
+export const closeDrawer = (): AnyAction => {
   return { type: 'SET_DRAWER', data: false };
 };
-const drawerReducer = (state = false, action: Action): boolean => {
+const drawerReducer = (state = false, action: AnyAction): boolean => {
   switch (action.type) {
     case 'TOGGLE_DRAWER':
       return !state;
